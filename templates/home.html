@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+    <h1>Добро пожаловать, {% if user.is_authenticated %}{{ user.username }}{% else %}гость{% endif %}!</h1>
+
+    {% if user.is_authenticated %}
+        <p>Вы авторизовались как: {{ user.username }}</p>
+      
+    {% else %}
+        <p>Вы не авторизованы. <a href="{% url 'login' %}">Войти</a> или <a href="{% url 'register' %}">зарегистрироваться</a>.</p>
+    {% endif %}
+</body>
+</html>
